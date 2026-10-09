@@ -1,0 +1,5 @@
+data/raw/
+weights/
+runs/**/*.pt
+__pycache__/
+*.zip
