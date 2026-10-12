@@ -4,7 +4,7 @@
 comparing two ImageNet-pretrained CNN backbones (EfficientNet-B0, ResNet-50) and two fine-tuning strategies
 (feature extraction vs. full fine-tuning).
 
-Team: Svetlana Maltseva, Valeria Kolpakova, Alexey Feofanov, Vadim Gafarov (Innopolis University).
+Team: Svetlana Maltseva, Valeria Kolpakova, Alexey Feofanov, Vadim Gafarov 
 
 ## Layout
 
@@ -23,13 +23,13 @@ runs/<name>_seed<k>/     checkpoints and results (git-ignored except small json/
 ```bash
 pip install -r requirements.txt
 
-# 1. data (~43 MB)
+# 1. data 
 mkdir -p data/raw && cd data/raw
 curl -L -o ds.zip https://raw.githubusercontent.com/garythung/trashnet/master/data/dataset-resized.zip
 unzip -q ds.zip && rm -rf __MACOSX ds.zip && cd ../..
 python scripts/prepare_data.py --root data/raw/dataset-resized
 
-# 2. ImageNet weights (or set weights_file: null to let timm download them)
+# 2. ImageNet weights 
 mkdir -p weights
 curl -L -o weights/efficientnet_b0_ra-3dd342df.pth \
   https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/efficientnet_b0_ra-3dd342df.pth
