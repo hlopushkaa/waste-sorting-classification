@@ -64,8 +64,11 @@ def main():
 
     loaders, df = make_loaders(cfg["data_root"], cfg["split_csv"], cfg["batch_size"], cfg["num_workers"], cfg["img_size"])
     model = build_model(cfg["backbone"], 6, cfg["strategy"], cfg["dropout"], cfg.get("weights_file")).to(device)
-    model.load_state_dict(torch.load(run_dir / "best.pt", map_location=device))
-
+    try:
+        model.load_state_dict(torch.load(run_dir / "best.pt", map_location=device))
+    except FileNotFoundError:
+        print("Firstly run: python -m src.train --config configs/baseline_effb0_fe.yaml ")
+        return
     y, p, prob = predict(model, loaders["test"], device)
     rep = classification_report(y, p, target_names=CLASSES, output_dict=True, zero_division=0)
     cm = confusion_matrix(y, p, labels=range(6))

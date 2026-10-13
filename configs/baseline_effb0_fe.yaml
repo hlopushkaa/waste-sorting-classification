@@ -7,14 +7,14 @@ split_csv: data/splits.csv
 output_dir: runs
 img_size: 224
 batch_size: 32
-num_workers: 2
-dropout: 0.3
+num_workers: 6
+dropout: 0.2
 class_weighted_loss: true
 label_smoothing: 0.0
 head_lr: 1.0e-3
 backbone_lr: 1.0e-4              # unused while the backbone is frozen
 weight_decay: 1.0e-4
-epochs: 15
+epochs: 35
 warmup_epochs: 1
-patience: 5
-seed: 42
+patience: 7
+seed: 6545656

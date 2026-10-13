@@ -3,3 +3,6 @@ weights/
 runs/**/*.pt
 __pycache__/
 *.zip
+# pixi environments
+.pixi/*
+!.pixi/config.toml
