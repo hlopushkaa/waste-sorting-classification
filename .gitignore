@@ -1,6 +1,7 @@
 data/raw/
 weights/
 runs/**/*.pt
+runs/**/*.onnx
 __pycache__/
 *.zip
 # pixi environments

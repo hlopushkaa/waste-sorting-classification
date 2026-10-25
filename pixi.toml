@@ -13,6 +13,10 @@ version = "0.1.0"
 prepare = "python scripts/prepare_data.py --root data/raw/dataset-resized"
 train = "python -m src.train --config configs/baseline_effb0_fe.yaml"
 evaluate = "python -m src.evaluate --config configs/baseline_effb0_fe.yaml"
+train-ft = "python -m src.train --config configs/effb0_finetune.yaml"
+evaluate-ft = "python -m src.evaluate --config configs/effb0_finetune.yaml"
+evaluate-ft-tta = "python -m src.evaluate --config configs/effb0_finetune.yaml --tta"
+export-ft = "python -m src.export --config configs/effb0_finetune.yaml"
 
 [dependencies]
 pytorch = ">=2.2"
@@ -23,6 +27,8 @@ pandas = ">=2.0"
 matplotlib = ">=3.7"
 pyyaml = ">=6.0"
 pillow = ">=10.0"
+onnx = ">=1.15"
+onnxruntime = ">=1.17"
 
 [target.linux-64.dependencies]
 pytorch-gpu = "*"

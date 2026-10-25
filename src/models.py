@@ -12,15 +12,17 @@ BACKBONES = {
 
 
 def build_model(backbone: str, num_classes: int = 6, strategy: str = "feature_extraction",
-                dropout: float = 0.3, weights_file: str | None = None) -> nn.Module:
+                dropout: float = 0.3, weights_file: str | None = None,
+                pretrained: bool = True) -> nn.Module:
     """Create an ImageNet-pretrained backbone with a fresh classifier head.
 
     strategy: "feature_extraction" freezes every backbone parameter;
               "full_finetune" leaves all parameters trainable.
     weights_file: optional local .pth with ImageNet weights (for offline machines).
+    pretrained=False skips the ImageNet weights, e.g. when a trained checkpoint is loaded next.
     """
-    kwargs = dict(pretrained=True, num_classes=num_classes, drop_rate=dropout)
-    if weights_file:
+    kwargs = dict(pretrained=pretrained, num_classes=num_classes, drop_rate=dropout)
+    if weights_file and pretrained:
         kwargs["pretrained_cfg_overlay"] = dict(file=weights_file)
     model = timm.create_model(BACKBONES[backbone], **kwargs)
 

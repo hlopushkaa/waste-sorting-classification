@@ -98,12 +98,18 @@ def class_weights(labels, n_classes: int = len(CLASSES)) -> torch.Tensor:
     return w / w.mean()
 
 
-def make_loaders(root, split_csv, batch_size=32, num_workers=2, size=224):
+def make_loaders(root, split_csv, batch_size=32, num_workers=2, size=224, persistent_workers=False):
     df = pd.read_csv(split_csv)
     loaders = {}
     for split in ("train", "val", "test"):
         part = df[df.split == split]
         ds = TrashNetDataset(root, part, get_transforms(split == "train", size))
+        # persistent_workers=True keeps the training workers alive between epochs (worker
+        # start-up is slow, especially on Windows). Validation/test workers are never kept,
+        # to limit memory use.
+        keep = persistent_workers and num_workers > 0 and split == "train"
+        extra = dict(persistent_workers=True) if keep else {}
         loaders[split] = DataLoader(ds, batch_size=batch_size, shuffle=(split == "train"),
-                                    num_workers=num_workers, pin_memory=torch.cuda.is_available())
+                                    num_workers=num_workers, pin_memory=torch.cuda.is_available(),
+                                    **extra)
     return loaders, df
