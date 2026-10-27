@@ -1,0 +1,35 @@
+{
+  "threads": 12,
+  "max_abs_diff": 3865.97021484375,
+  "same_class": true,
+  "rows": [
+    {
+      "runtime": "pytorch_cpu",
+      "batch": 1,
+      "ms_per_batch": 21.328143599999976,
+      "ms_per_image": 21.328143599999976,
+      "img_per_sec": 46.88640599737903
+    },
+    {
+      "runtime": "onnxruntime_cpu",
+      "batch": 1,
+      "ms_per_batch": 4.917938739999954,
+      "ms_per_image": 4.917938739999954,
+      "img_per_sec": 203.33722172391464
+    },
+    {
+      "runtime": "pytorch_cpu",
+      "batch": 32,
+      "ms_per_batch": 698.7890417800008,
+      "ms_per_image": 21.837157555625026,
+      "img_per_sec": 45.79350574600816
+    },
+    {
+      "runtime": "onnxruntime_cpu",
+      "batch": 32,
+      "ms_per_batch": 296.9750195000006,
+      "ms_per_image": 9.280469359375019,
+      "img_per_sec": 107.75317080162675
+    }
+  ]
+}

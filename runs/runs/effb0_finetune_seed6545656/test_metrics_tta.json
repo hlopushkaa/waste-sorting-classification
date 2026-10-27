@@ -1,0 +1,130 @@
+{
+  "accuracy": 0.920844327176781,
+  "macro_f1": 0.917049367716951,
+  "per_class": {
+    "cardboard": {
+      "precision": 0.9824561403508771,
+      "recall": 0.9180327868852459,
+      "f1-score": 0.9491525423728814,
+      "support": 61.0
+    },
+    "glass": {
+      "precision": 0.9090909090909091,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9210526315789473,
+      "support": 75.0
+    },
+    "metal": {
+      "precision": 0.8450704225352113,
+      "recall": 0.9836065573770492,
+      "f1-score": 0.9090909090909091,
+      "support": 61.0
+    },
+    "paper": {
+      "precision": 0.925531914893617,
+      "recall": 0.9775280898876404,
+      "f1-score": 0.9508196721311475,
+      "support": 89.0
+    },
+    "plastic": {
+      "precision": 0.9508196721311475,
+      "recall": 0.8055555555555556,
+      "f1-score": 0.8721804511278195,
+      "support": 72.0
+    },
+    "trash": {
+      "precision": 0.9473684210526315,
+      "recall": 0.8571428571428571,
+      "f1-score": 0.9,
+      "support": 21.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      56,
+      0,
+      1,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      70,
+      3,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      1,
+      60,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      87,
+      1,
+      0
+    ],
+    [
+      1,
+      6,
+      5,
+      1,
+      58,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      2,
+      0,
+      18
+    ]
+  ],
+  "n_test": 379,
+  "device": "cuda",
+  "torch_threads": 12,
+  "tta": true,
+  "benchmark": [
+    {
+      "batch": 1,
+      "precision": "fp32",
+      "channels_last": false,
+      "ms_per_batch": 10.596769244999678,
+      "ms_per_image": 10.596769244999678,
+      "img_per_sec": 94.36838501242937
+    },
+    {
+      "batch": 32,
+      "precision": "fp32",
+      "channels_last": false,
+      "ms_per_batch": 21.38797758999999,
+      "ms_per_image": 0.6683742996874997,
+      "img_per_sec": 1496.1676420944862
+    },
+    {
+      "batch": 1,
+      "precision": "fp16",
+      "channels_last": true,
+      "ms_per_batch": 10.694812604999697,
+      "ms_per_image": 10.694812604999697,
+      "img_per_sec": 93.50327461862322
+    },
+    {
+      "batch": 32,
+      "precision": "fp16",
+      "channels_last": true,
+      "ms_per_batch": 11.7079249599999,
+      "ms_per_image": 0.3658726549999969,
+      "img_per_sec": 2733.191416013335
+    }
+  ]
+}

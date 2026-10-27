@@ -92,18 +92,39 @@
   "n_test": 379,
   "device": "cuda",
   "torch_threads": 12,
+  "tta": false,
   "benchmark": [
     {
       "batch": 1,
-      "ms_per_batch": 9.892747900000245,
-      "ms_per_image": 9.892747900000245,
-      "img_per_sec": 101.08414872271993
+      "precision": "fp32",
+      "channels_last": false,
+      "ms_per_batch": 9.761393054999417,
+      "ms_per_image": 9.761393054999417,
+      "img_per_sec": 102.44439439797354
     },
     {
       "batch": 32,
-      "ms_per_batch": 24.534425015000068,
-      "ms_per_image": 0.7667007817187521,
-      "img_per_sec": 1304.2897879381956
+      "precision": "fp32",
+      "channels_last": false,
+      "ms_per_batch": 24.273089155000207,
+      "ms_per_image": 0.7585340360937565,
+      "img_per_sec": 1318.3324048973825
+    },
+    {
+      "batch": 1,
+      "precision": "fp16",
+      "channels_last": true,
+      "ms_per_batch": 12.288302805000058,
+      "ms_per_image": 12.288302805000058,
+      "img_per_sec": 81.37820298447596
+    },
+    {
+      "batch": 32,
+      "precision": "fp16",
+      "channels_last": true,
+      "ms_per_batch": 12.983365385000525,
+      "ms_per_image": 0.4057301682812664,
+      "img_per_sec": 2464.692246662725
     }
   ]
 }
